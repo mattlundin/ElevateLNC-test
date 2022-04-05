@@ -216,6 +216,6 @@ const servicesTL = gsap.timeline({
 servicesTL
 	.from('.services-flag-container', { opacity: 0, x: 1200 })
 	.from('.video-container', { x: 1200, rotate: 1080 })
-	.from('.video-container video', { height: 0 })
+	.from('.video-container .video', { height: 0 })
 	.from('.services-text', { opacity: 0, y: 500 })
 	.from('.services-text p', { opacity: 0, duration: 0.8 });
