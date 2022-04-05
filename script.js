@@ -25,11 +25,6 @@ const navSlide = () => {
 	const burger = document.querySelector('.burger');
 	const navList = document.querySelector('.nav-list');
 	const navItem = document.querySelectorAll('.nav-list a');
-	// let navListSlide = gsap.fromTo(
-	// 	'navList',
-	// 	{ opacity: 0, x: -100 },
-	// 	{ opacity: 1, x: 0, stagger: 1 }
-	// );
 
 	burger.addEventListener('click', () => {
 		navList.classList.toggle('open');
@@ -95,25 +90,18 @@ gsap.from('.hire-outer', {
 	duration: 2,
 	ease: 'elastic',
 });
-gsap.to('.block1', {
-	scrollTrigger: {
-		trigger: '.block1',
-		start: '10px 90%',
-	},
-	x: 0,
-	opacity: 1,
-	duration: 1.3,
-	'clip-path': 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)',
-});
-gsap.to('.block2', {
-	scrollTrigger: {
-		trigger: '.block2',
-		start: '10px 90%',
-	},
-	x: 0,
-	opacity: 1,
-	duration: 1.3,
-	'clip-path': 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)',
+const blocks = gsap.utils.toArray('.block');
+blocks.forEach((block) => {
+	gsap.to(block, {
+		scrollTrigger: {
+			trigger: block,
+			start: '10px 90%',
+		},
+		x: 0,
+		opacity: 1,
+		duration: 1.3,
+		'clip-path': 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)',
+	});
 });
 
 // * LARGER SCREENS FOR .BOX ELEMENTS
@@ -216,9 +204,6 @@ for (let i = 0; i < boxPs.length; i++) {
 	}
 }
 
-// let scrollTL = gsap.timeline({scrollTrigger: {
-
-// }})
 const servicesTL = gsap.timeline({
 	ease: 'power1.out',
 	scrollTrigger: {
@@ -234,12 +219,3 @@ servicesTL
 	.from('.video-container video', { height: 0 })
 	.from('.services-text', { opacity: 0, y: 500 })
 	.from('.services-text p', { opacity: 0, duration: 0.8 });
-
-// gsap.to('.services-flag-container', {
-// 	scrollTrigger: {
-// 		trigger: '.services-flag-container',
-// 		start: '10px 90%',
-// 	},
-// 	x: 0,
-// 	duration: 0.5,
-// });
