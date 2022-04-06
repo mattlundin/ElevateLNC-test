@@ -1,7 +1,7 @@
 // window.onload = function () {
 // 	window.scrollTo(0, 0);
 // };
-// gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger);
 
 const nav = document.querySelector('.nav');
 const navList = document.querySelectorAll('.nav-list');
