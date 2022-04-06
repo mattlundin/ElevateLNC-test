@@ -1,7 +1,7 @@
 // window.onload = function () {
 // 	window.scrollTo(0, 0);
 // };
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger);
 
 const nav = document.querySelector('.nav');
 const navList = document.querySelectorAll('.nav-list');
@@ -55,7 +55,13 @@ window.addEventListener('resize', () => {
 
 //*~~~* GSAP;
 let tl = gsap.timeline({
-	defaults: { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' },
+	defaults: {
+		opacity: 1,
+		y: 0,
+		duration: 0.5,
+		ease: 'power2.out',
+		scrub: true,
+	},
 });
 // tl.to('.nav', {})
 tl.to(
@@ -87,8 +93,9 @@ gsap.from('.hire-outer', {
 	},
 	opacity: 0,
 	x: 150,
-	duration: 2,
-	ease: 'elastic',
+	duration: 1.2,
+	scrub: true,
+	// ease: 'elastic',
 });
 const blocks = gsap.utils.toArray('.block');
 blocks.forEach((block) => {
@@ -210,7 +217,7 @@ const servicesTL = gsap.timeline({
 		trigger: '#services',
 		start: 'top center',
 		duration: 0.5,
-		toggleActions: 'play none reverse none',
+		toggleActions: 'play none play none',
 	},
 });
 servicesTL
